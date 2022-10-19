@@ -5,7 +5,6 @@ import { removeTodo, toggleTodoCompleted } from '../store/todoSlice'
 
 export default function TodoItem({ todo }) {
     const dispatch = useDispatch()
-
     return (
         <ListGroup.Item>
             <Form.Group className='todo-item'>
