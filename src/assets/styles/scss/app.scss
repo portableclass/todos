@@ -16,44 +16,26 @@
     }
 }
 
-.list-group-item {
-    display: flex;
+.todo-item {
+    display: inline-flex;
+    position: relative;
     align-items: center;
-    justify-content: space-around;
-    vertical-align: middle;
-    .todo-item {
-        display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    input {
+        cursor: pointer;
+    }
+    span {
+        font-size: medium;
+    }
+    input:checked + span {
+        text-decoration: line-through;
+    }
+    .delete {
+        display: flex;
         position: relative;
-        vertical-align: middle;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        .form-check {
-            display: inline-flex;
-            position: relative;
-            vertical-align: middle;
-            text-align: center;
-            align-items: center;
-            width: 100%;
-            input {
-                cursor: pointer;
-            }
-            label {
-                margin-left: 12px;
-                font-size: medium;
-            }
-            input:checked + label {
-                text-decoration: line-through;
-            }
-        }
-        span {
-            display: flex;
-            position: relative;
-            color: red;
-            font-size: 30px;
-            margin-left: 12px;
-            cursor: pointer;
-        }
+        color: red;
+        font-size: 30px;
+        cursor: pointer;
     }
 }

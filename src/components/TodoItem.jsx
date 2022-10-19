@@ -1,19 +1,24 @@
 import React from 'react';
-import { ListGroup, Form } from 'react-bootstrap'
+import { ListGroup, Form } from 'react-bootstrap';
 
-export default function TodoItem({ todo, toggleTodoCompleted, handleDeleteTodo }) {
+export default function TodoItem({
+    todo,
+    toggleTodoCompleted,
+    handleDeleteTodo,
+}) {
     return (
         <ListGroup.Item>
-            <Form.Group className='todo-item' controlId='formBasicCheckbox'>
-                <Form.Check
+            <Form.Group className='todo-item'>
+                <input
                     type='checkbox'
-                    label={todo.description}
                     checked={todo.completed}
                     onChange={() => toggleTodoCompleted(todo.id)}
                 />
+                <span>{todo.description}</span>
                 <span
                     onClick={() => handleDeleteTodo(todo.id)}
                     aria-hidden='true'
+                    className='delete'
                 >
                     &times;
                 </span>
