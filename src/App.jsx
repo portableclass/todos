@@ -1,48 +1,10 @@
-import React, { useState } from 'react';
-import './assets/styles/scss/app.scss';
-import TodoInput from './components/TodoInput';
-import TodoList from './components/TodoList';
+import React, { useState } from 'react'
+import './assets/styles/scss/app.scss'
+import TodoInput from './components/TodoInput'
+import TodoList from './components/TodoList'
 
 function App() {
-    const [todos, setTodos] = useState([
-        {
-            id: new Date().toISOString(),
-            description: 'text',
-            completed: false,
-        },
-    ]);
-    const [text, setText] = useState('');
-
-    const addTodo = () => {
-        if (text.trim().length) {
-            setTodos([
-                ...todos,
-                {
-                    id: new Date().toISOString(),
-                    description: text,
-                    completed: false,
-                },
-            ]);
-            setText('');
-        }
-    };
-
-    const handleDeleteTodo = todoId => {
-        setTodos(todos.filter(todo => todo.id !== todoId));
-    };
-
-    const toggleTodoCompleted = todoId => {
-        setTodos(
-            todos.map(todo => {
-                if (todo.id !== todoId) return todo;
-
-                return {
-                    ...todo,
-                    completed: !todo.completed,
-                };
-            }),
-        );
-    };
+    const [text, setText] = useState('')
 
     return (
         <div className='app-wrapper'>
@@ -50,16 +12,11 @@ function App() {
                 <TodoInput
                     text={text}
                     handleInput={setText}
-                    handleSubmit={addTodo}
                 />
-                <TodoList
-                    todos={todos}
-                    toggleTodoCompleted={toggleTodoCompleted}
-                    handleDeleteTodo={handleDeleteTodo}
-                />
+                <TodoList />
             </div>
         </div>
-    );
+    )
 }
 
-export default App;
+export default App
