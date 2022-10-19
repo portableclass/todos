@@ -1,9 +1,9 @@
-import React from 'react';
-import { InputGroup, Form, Button } from 'react-bootstrap';
+import React from 'react'
+import { InputGroup, Form, Button } from 'react-bootstrap'
 
 export default function TodoInput({ text, handleInput, handleSubmit }) {
     return (
-        <InputGroup className='mb-3'>
+        <InputGroup className='mb-3' size='lg'>
             <Form.Control
                 placeholder='Enter some todo'
                 aria-label='Enter some todo'
@@ -12,6 +12,7 @@ export default function TodoInput({ text, handleInput, handleSubmit }) {
                 onChange={e => handleInput(e.target.value)}
             />
             <Button
+                size='lg'
                 variant='outline-secondary'
                 id='button-addon2'
                 onClick={handleSubmit}
@@ -19,5 +20,5 @@ export default function TodoInput({ text, handleInput, handleSubmit }) {
                 Add todo
             </Button>
         </InputGroup>
-    );
+    )
 }

@@ -14,7 +14,7 @@ export default function TodoItem({
                     checked={todo.completed}
                     onChange={() => toggleTodoCompleted(todo.id)}
                 />
-                <span>{todo.description}</span>
+                <span className='px-3'>{todo.description}</span>
                 <span
                     onClick={() => handleDeleteTodo(todo.id)}
                     aria-hidden='true'
