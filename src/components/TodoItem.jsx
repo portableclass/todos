@@ -13,7 +13,7 @@ export default function TodoItem({ todo }) {
                     checked={todo.completed}
                     onChange={() => dispatch(toggleTodoCompleted({ id: todo.id }))}
                 />
-                <span>{todo.description}</span>
+                <span className='px-3'>{todo.description}</span>
                 <span
                     onClick={() => dispatch(removeTodo({ id: todo.id }))}
                     aria-hidden='true'

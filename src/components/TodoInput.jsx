@@ -13,7 +13,7 @@ export default function TodoInput({ text, handleInput }) {
     }
 
     return (
-        <InputGroup className='mb-3'>
+        <InputGroup className='mb-3' size='lg'>
             <Form.Control
                 placeholder='Enter some todo'
                 aria-describedby='basic-addon2'
@@ -21,6 +21,7 @@ export default function TodoInput({ text, handleInput }) {
                 onChange={e => handleInput(e.target.value)}
             />
             <Button
+                size='lg'
                 variant='outline-secondary'
                 id='button-addon2'
                 onClick={handleAdd}
