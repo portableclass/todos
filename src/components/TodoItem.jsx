@@ -1,22 +1,21 @@
 import React from 'react';
-import { ListGroup, Form } from 'react-bootstrap';
+import { ListGroup, Form } from 'react-bootstrap'
+import { useDispatch } from 'react-redux';
+import { removeTodo, toggleTodoCompleted } from '../store/todoSlice'
 
-export default function TodoItem({
-    todo,
-    toggleTodoCompleted,
-    handleDeleteTodo,
-}) {
+export default function TodoItem({ todo }) {
+    const dispatch = useDispatch()
     return (
         <ListGroup.Item>
             <Form.Group className='todo-item'>
                 <input
                     type='checkbox'
                     checked={todo.completed}
-                    onChange={() => toggleTodoCompleted(todo.id)}
+                    onChange={() => dispatch(toggleTodoCompleted({ id: todo.id }))}
                 />
                 <span>{todo.description}</span>
                 <span
-                    onClick={() => handleDeleteTodo(todo.id)}
+                    onClick={() => dispatch(removeTodo({ id: todo.id }))}
                     aria-hidden='true'
                     className='delete'
                 >
