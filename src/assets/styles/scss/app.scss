@@ -1,0 +1,59 @@
+@import "default";
+
+.app-wrapper {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    background: rgb(34, 34, 34);
+    h1 {
+        font-size: 40px;
+        color: rgb(130, 215, 247);
+    }
+}
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    vertical-align: middle;
+    .todo-item {
+        display: inline-flex;
+        position: relative;
+        vertical-align: middle;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        .form-check {
+            display: inline-flex;
+            position: relative;
+            vertical-align: middle;
+            text-align: center;
+            align-items: center;
+            width: 100%;
+            input {
+                cursor: pointer;
+            }
+            label {
+                margin-left: 12px;
+                font-size: medium;
+            }
+            input:checked + label {
+                text-decoration: line-through;
+            }
+        }
+        span {
+            display: flex;
+            position: relative;
+            color: red;
+            font-size: 30px;
+            margin-left: 12px;
+            cursor: pointer;
+        }
+    }
+}
