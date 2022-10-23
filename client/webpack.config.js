@@ -52,7 +52,7 @@ module.exports = {
                 name: 'Google Chrome',
             },
         },
-        port: 3001,
+        port: 3000,
         compress: true,
         historyApiFallback: true,
     },

@@ -12,11 +12,23 @@ export default function TodoItem({
                 <input
                     type='checkbox'
                     checked={todo.completed}
-                    onChange={() => toggleTodoCompleted(todo.id)}
+                    onChange={() =>
+                        toggleTodoCompleted({
+                            variables: 
+                            {
+                                id: todo.id,
+                                completed: !todo.completed,
+                            },
+                        })
+                    }
                 />
                 <span className='px-3'>{todo.description}</span>
                 <span
-                    onClick={() => handleDeleteTodo(todo.id)}
+                    onClick={() =>
+                        handleDeleteTodo({
+                            variables: { id: todo.id },
+                        })
+                    }
                     aria-hidden='true'
                     className='delete'
                 >
