@@ -45,14 +45,11 @@ const root = {
             ...params.todo,
         })
 
-        console.log(todos)
-
         return todos.find(({ id }) => id === newId)
     },
     updateTodo: params => {        
         return todos
             .map(todo => {
-                console.log(todo.id, params.id)
                 if (todo.id !== params.id) return todo
 
                 return {
