@@ -21,11 +21,10 @@ export default function TodoInput({ text, handleInput }) {
         if (text.trim().length) {
             addTodo({
                 variables: {
-                    todo: {
-                        description: text,
-                        completed: false,
-                        userId: 456,
-                    },
+                    // eslint-disable-next-line quotes, prefer-template
+                    description: text,
+                    completed: false,
+                    userId: '63570dc6bf277ef28141a579',
                 },
             })
             handleInput('')

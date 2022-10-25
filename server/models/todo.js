@@ -4,7 +4,7 @@ const Schema = _Schema
 const todoSchema = new Schema({
     description: String,
     completed: Boolean,
-    userId: Number,
+    userId: String,
 })
 
 export default model('Todo', todoSchema)
