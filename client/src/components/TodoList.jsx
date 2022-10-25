@@ -11,13 +11,13 @@ export default function TodoList() {
     const [handleDeleteTodo, { error: removeError }] = useMutation(
         DELETE_TODO,
         {
-            update(cache, { data: { deletedTodoId } }) {
+            update(cache, { data: { deletedTodo } }) {
                 cache.modify({
                     fields: {
-                        allTodos(currentTodos = []) {
+                        todos(currentTodos = []) {
                             return currentTodos.filter(
                                 // eslint-disable-next-line no-underscore-dangle
-                                item => item.__ref !== `Todo:${deletedTodoId}`,
+                                item => item.__ref !== `Todo:${deletedTodo.id}`,
                             )
                         },
                     },
