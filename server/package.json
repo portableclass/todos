@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon -e js,json,graphql"
+    "start": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
