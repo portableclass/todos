@@ -1,10 +1,18 @@
-import { Schema as _Schema, model } from 'mongoose'
-const Schema = _Schema
+const mongoose = require('mongoose')
 
-const todoSchema = new Schema({
-    description: String,
-    completed: Boolean,
-    userId: String,
+const todoSchema = new mongoose.Schema({
+    description: {
+        type: String,
+        required: true,
+    },
+    completed: {
+        type: Boolean,
+        required: true,
+    },
+    userId: {
+        type: String,
+        required: true,
+    },
 })
 
-export default model('Todo', todoSchema)
+module.exports = mongoose.model('Todo', todoSchema)
