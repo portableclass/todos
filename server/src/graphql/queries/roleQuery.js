@@ -7,25 +7,25 @@ const {
     GraphQLNonNull,
 } = require('graphql')
 
-const { Todo } = require('../../models')
-const { TodoType } = require('../types')
+const { Role } = require('../../models')
+const { RoleType } = require('../types')
 
-const todo = {
-    type: TodoType,
+const role = {
+    type: RoleType,
     args: { id: { type: GraphQLID } },
     resolve(parent, { id }) {
-        return Todo.findById(id)
+        return Role.findById(id)
     },
 }
 
-const todos = {
-    type: new GraphQLList(TodoType),
+const roles = {
+    type: new GraphQLList(RoleType),
     resolve(parent, args) {
-        return Todo.find({})
+        return Role.find({})
     },
 }
 
 module.exports = {
-    todo,
-    todos
+    role,
+    roles
 }

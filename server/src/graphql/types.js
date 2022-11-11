@@ -5,40 +5,45 @@ const {
     GraphQLBoolean,
     GraphQLList,
     GraphQLNonNull,
+    GraphQLInputObjectType,
 } = require('graphql')
 
-const { Todo, User } = require('../models')
-
-const TodoType = new GraphQLObjectType({
-    name: 'Todo',
-    fields: () => ({
-        id: { type: GraphQLID },
-        description: { type: new GraphQLNonNull(GraphQLString) },
-        completed: { type: new GraphQLNonNull(GraphQLBoolean) },
-        user: {
-            type: UserType,
-            resolve({ userId }, args) {
-                return User.findById(userId)
-            },
-        },
-    }),
-})
+const { User, Role } = require('../models')
 
 const UserType = new GraphQLObjectType({
     name: 'User',
     fields: () => ({
         id: { type: GraphQLID },
-        name: { type: new GraphQLNonNull(GraphQLString) },
-        todos: {
-            type: new GraphQLList(TodoType),
-            resolve({ id }, args) {
-                return Todo.find({ userId: id })
+        username: { type: new GraphQLNonNull(GraphQLString) },
+        password: { type: new GraphQLNonNull(GraphQLString) },
+        roles: {
+            type: new GraphQLList(RoleType),
+            resolve(parent, args) {
+                return parent.roles.map(role => Role.findById(role))
             },
+        },
+    }),
+})
+
+const RoleType = new GraphQLObjectType({
+    name: 'Role',
+    fields: () => ({
+        id: { type: GraphQLID },
+        value: { type: new GraphQLNonNull(GraphQLString) },
+    }),
+})
+
+const RoleInput = new GraphQLInputObjectType({
+    name: 'RoleInput',
+    fields: () => ({
+        value: {
+            type: new GraphQLNonNull(GraphQLString),
         },
     }),
 })
 
 module.exports = {
     UserType,
-    TodoType,
+    RoleType,
+    RoleInput,
 }

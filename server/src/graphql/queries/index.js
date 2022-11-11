@@ -1,7 +1,7 @@
 const userQuery= require('./userQuery')
-const todoQuery = require('./todoQuery')
+const roleQuery= require('./roleQuery')
 
 module.exports = {
-    ...todoQuery,
-    ...userQuery
+    ...userQuery,
+    ...roleQuery
 }

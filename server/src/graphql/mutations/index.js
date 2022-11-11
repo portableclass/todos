@@ -1,7 +1,7 @@
 const userMutation= require('./userMutation')
-const todoMutation = require('./todoMutation')
+const roleMutation= require('./roleMutation')
 
 module.exports = {
     ...userMutation,
-    ...todoMutation
+    ...roleMutation
 }
