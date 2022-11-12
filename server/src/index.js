@@ -7,7 +7,7 @@ const schema = require("./graphql/schema")
 
 dotenv.config()
 const PORT = process.env.PORT || 4000
-const app = express()
+const app = express() 
 
 // Configure database
 mongoose.connect(
